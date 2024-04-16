@@ -1,0 +1,14 @@
+name: Check Docker
+
+on: [push]
+
+jobs:
+  check-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du repository
+        uses: actions/checkout@v2
+
+      - name: Vérifier la présence de Docker
+        run: docker -v
