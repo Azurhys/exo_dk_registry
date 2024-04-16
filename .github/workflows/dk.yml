@@ -36,4 +36,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_LOGIN }}/scrapper:latest
             docker stop scrapper-live
             docker rm scrapper-live
-            docker run -d --name scrapper-live -p 80:80 ${{ secrets.DOCKER_LOGIN }}/scrapper:latest
+            docker run --name scrapper-live ${{ secrets.DOCKER_LOGIN }}/scrapper:latest
