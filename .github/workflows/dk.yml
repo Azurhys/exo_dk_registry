@@ -20,5 +20,5 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Taguer et pousser l'image Docker
-        run: docker tag mon_image_flask ${{ secrets.DOCKER_LOGIN }}/scrapper:latest |
+        run: docker tag scrapper:latest ${{ secrets.DOCKER_LOGIN }}/scrapper:latest |
             docker push ${{ secrets.DOCKER_LOGIN }}/scrapper:latest
