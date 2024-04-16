@@ -24,7 +24,7 @@ jobs:
             docker push ${{ secrets.DOCKER_LOGIN }}/scrapper:latest
   deploy:
     runs-on: ubuntu-latest
-    needs: [build-and-push] # Attendez que le job de build et de push soit terminé
+    needs: [check-docker] # Attendez que le job de build et de push soit terminé
     steps:
       - name: Connexion SSH à la VM de production
         uses: appleboy/ssh-action@master
