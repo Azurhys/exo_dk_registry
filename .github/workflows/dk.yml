@@ -1,4 +1,4 @@
-name: Check Docker
+name: Check Docker Login
 
 on: [push]
 
@@ -13,12 +13,8 @@ jobs:
       - name: Vérifier la présence de Docker
         run: docker -v
 
-      - name: Build de l'image Docker
-        run: docker build -t scrapper:latest .
-
+      
       - name: Connexion à Docker Hub
         run: docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Taguer et pousser l'image Docker
-        run: docker tag mon_image_flask ${{ secrets.DOCKER_LOGIN }}/scrapper:latest | 
-            docker push ${{ secrets.DOCKER_LOGIN }}/scrapper:latest
+   
