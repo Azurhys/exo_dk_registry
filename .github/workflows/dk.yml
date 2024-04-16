@@ -17,7 +17,7 @@ jobs:
         run: docker build -t scrapper:latest .
 
       - name: Connexion à Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWORD }}
+        run: docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Taguer et pousser l'image Docker
         run: docker tag mon_image_flask ${{ secrets.DOCKER_LOGIN }}/scrapper:latest | 
